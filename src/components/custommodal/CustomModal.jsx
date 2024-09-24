@@ -9,12 +9,12 @@ const CustomModal = ({ isOpen, onClose, car }) => {
       data-aos="fade-in"
       data-aos-duration="500"
     >
-      <div className="relative bg-white custom-shadow p-4 rounded-md max-w-full max-h-full md:w-[80vw] md:h-[80vh] overflow-auto animate__animated animate__zoomIn animate__duration-2s">
+      <div className="relative bg-white custom-shadow p-4 rounded-md max-w-full max-h-full md:w-[80vw] md:h-[80vh] overflow-auto animate__animated animate__zoomIn animate__faster">
         <button
           onClick={onClose}
-          className="absolute flex justify-center items-center top-4 right-4 md:left-4 bg-slate-600 w-12 h-12 rounded-full"
+          className="absolute flex justify-center items-center top-4 right-4 md:left-4 bg-slate-600 w-6 h-6 md:w-12 md:h-12 rounded-full"
         >
-          <i className="fa-solid fa-xmark text-[22px] text-white"></i>
+          <i className="fa-solid fa-xmark text-[12px] md:text-[22px] text-white"></i>
         </button>
         <div className="grid grid-cols-1 md:grid-cols-8 gap-5 w-full h-full">
           <div className="w-full h-full md:col-span-4 order-2 md:order-1 flex items-center justify-center">
