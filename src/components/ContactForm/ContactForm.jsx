@@ -53,7 +53,7 @@ const ContactForm = () => {
             className="block text-gray-700 font-medium mb-2"
             htmlFor="name"
           >
-            Name<span className="text-red-500">*</span>
+            Name<span className="text-[#FBBB04]">*</span>
           </label>
           <input
             id="name"
@@ -62,10 +62,12 @@ const ContactForm = () => {
             onChange={handleInputChange}
             placeholder="Enter Your Name"
             className={`w-full px-4 py-3 border ${
-              errors.name ? "border-red-500" : "border-gray-300"
-            } rounded-md focus:outline-none focus:ring-2 focus:ring-red-500`}
+              errors.name ? "border-[#FBBB04]" : "border-gray-300"
+            } rounded-md focus:outline-none focus:ring-2 focus:ring-[#FBBB04]`}
           />
-          {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
+          {errors.name && (
+            <p className="text-[#FBBB04] text-sm">{errors.name}</p>
+          )}
         </div>
 
         <div>
@@ -73,7 +75,7 @@ const ContactForm = () => {
             className="block text-gray-700 font-medium mb-2"
             htmlFor="mobile"
           >
-            Mobile Number<span className="text-red-500">*</span>
+            Mobile Number<span className="text-[#FBBB04]">*</span>
           </label>
           <input
             id="mobile"
@@ -82,11 +84,11 @@ const ContactForm = () => {
             onChange={handleInputChange}
             placeholder="Enter Your Number"
             className={`w-full px-4 py-3 border ${
-              errors.mobile ? "border-red-500" : "border-gray-300"
-            } rounded-md focus:outline-none focus:ring-2 focus:ring-red-500`}
+              errors.mobile ? "border-[#FBBB04]" : "border-gray-300"
+            } rounded-md focus:outline-none focus:ring-2 focus:ring-[#FBBB04]`}
           />
           {errors.mobile && (
-            <p className="text-red-500 text-sm">{errors.mobile}</p>
+            <p className="text-[#FBBB04] text-sm">{errors.mobile}</p>
           )}
         </div>
 
@@ -95,7 +97,7 @@ const ContactForm = () => {
             className="block text-gray-700 font-medium mb-2"
             htmlFor="email"
           >
-            Email Address<span className="text-red-500">*</span>
+            Email Address<span className="text-[#FBBB04]">*</span>
           </label>
           <input
             id="email"
@@ -104,11 +106,11 @@ const ContactForm = () => {
             onChange={handleInputChange}
             placeholder="Enter Your Email"
             className={`w-full px-4 py-3 border ${
-              errors.email ? "border-red-500" : "border-gray-300"
-            } rounded-md focus:outline-none focus:ring-2 focus:ring-red-500`}
+              errors.email ? "border-[#FBBB04]" : "border-gray-300"
+            } rounded-md focus:outline-none focus:ring-2 focus:ring-[#FBBB04]`}
           />
           {errors.email && (
-            <p className="text-red-500 text-sm">{errors.email}</p>
+            <p className="text-[#FBBB04] text-sm">{errors.email}</p>
           )}
         </div>
 
@@ -125,12 +127,12 @@ const ContactForm = () => {
             value={formData.message}
             onChange={handleInputChange}
             placeholder="Enter Your Message"
-            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+            className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FBBB04]"
           />
         </div>
 
         <div className="col-span-1 md:col-span-2 text-center">
-          <button className="px-5 py-2 bg-gradient-to-l from-[#FBBB04] to-[#daa003] text-white rounded-md shadow-lg">
+          <button className="px-5 py-2 md:py-3 bg-gradient-to-l from-[#FBBB04] to-[#daa003] text-white rounded-md shadow-lg">
             Submit Form
           </button>
         </div>
