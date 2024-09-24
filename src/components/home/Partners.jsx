@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { act, useContext, useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import FleetForm from "../fleet/FleetForm";
 import useGetData from "../../hooks/useGetData";
+import usePostData from "../../hooks/usePostData";
 import { Link, useNavigate } from "react-router-dom";
+import { ContextAvailablity } from "../../context/Availability";
 
 const Partners = () => {
   const { data: locations } = useGetData("locations");
   const navigate = useNavigate();
+  const { state, dispatch } = useContext(ContextAvailablity)
 
   const [formData, setFormData] = useState({
     pickupLocation: "",
@@ -18,19 +21,35 @@ const Partners = () => {
 
   const handleFormChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    const updated = { ...formData, [name]: value }
+    setFormData(updated);
+    dispatch({ type: "SET_FORM_DATA", formData: updated });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    setFormData({
-      pickupLocation: "",
-      dropoffLocation: "",
-      pickupDate: null,
-      dropoffDate: null,
-    });
-    navigate("/fleet");
+
+    if (!formData.pickupLocation || !formData.dropoffLocation || !formData.pickupDate || !formData.dropoffDate) return;
+
+    const res = await usePostData('fleets-pickupfilter', {
+      method: "POST",
+      body: JSON.stringify(formData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+
+    if (res.data) {
+      dispatch({ type: "SET_API_RESPONSE", data: res.data })
+      // clear form data
+      setFormData({
+        pickupLocation: "",
+        dropoffLocation: "",
+        pickupDate: null,
+        dropoffDate: null,
+      });
+      navigate("/fleet");
+    }
   };
 
   return (

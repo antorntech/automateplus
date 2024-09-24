@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import useGetData from "../hooks/useGetData";
+import React, { useContext, useEffect, useState } from "react";
+import useGetData, { baseURL } from "../hooks/useGetData";
 import Loader from "../loaders/Loader";
 import FleetHero from "../components/fleet/FleetHero";
 import FleetForm from "../components/fleet/FleetForm";
@@ -7,10 +7,14 @@ import FleetFilters from "../components/fleet/FleetFilters";
 import FleetCars from "../components/fleet/FleetCars";
 import FAQ from "../components/faq/Faq";
 import LongTermForm from "../components/LongTermForm/LongTermForm";
+import { ContextAvailablity } from "../context/Availability";
 
 const Fleet = () => {
-  const { data, loading, error } = useGetData("fleets");
+  // const { data, loading, error } = useGetData("fleets");
   const { data: locations } = useGetData("locations");
+  const { state } = useContext(ContextAvailablity)
+  const formDataToBind = state.formData || {}
+  const [data, setData] = useState(null)
 
   const [formData, setFormData] = useState({
     pickupLocation: "",
@@ -18,6 +22,18 @@ const Fleet = () => {
     pickupDate: null,
     dropoffDate: null,
   });
+
+  useEffect(() => {
+    if (state.formData) { setFormData(formDataToBind); }
+
+    if (!state.data) {
+      fetch(baseURL + "fleets").then((res) => res.json()).then(({ data }) => {
+        setData(data);
+      }).catch(console.error)
+    } else {
+      setData(state.data);
+    }
+  }, [state]);
 
   const [filters, setFilters] = useState({
     type: [],
@@ -116,8 +132,8 @@ const Fleet = () => {
     });
   };
 
-  if (loading) return <Loader />;
-  if (error) return <p>{error}</p>;
+  // if (loading) return <Loader />;
+  // if (error) return <p>{error}</p>;
 
   return (
     <>

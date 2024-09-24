@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const baseURL = "https://queencarentalmalta.com/admin/public/api/";
+export const baseURL = "https://queencarentalmalta.com/admin/public/api/";
 
 const useGetData = (endpoint) => {
   const [data, setData] = useState(null);

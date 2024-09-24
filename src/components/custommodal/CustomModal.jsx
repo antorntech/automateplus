@@ -1,4 +1,5 @@
 import React from "react";
+import { Choose } from "../fleet/FleetCars";
 
 const CustomModal = ({ isOpen, onClose, car }) => {
   if (!isOpen) return null;
@@ -51,9 +52,7 @@ const CustomModal = ({ isOpen, onClose, car }) => {
                 <span class="text-gray-500 text-md">Price per week</span>
               </div>
 
-              <button class="w-1/3 bg-gradient-to-l from-[#FBBB04] to-[#daa003] text-white font-bold px-6 py-2 md:py-3 rounded-lg  focus:outline-none">
-                Choose
-              </button>
+              <div className="flex"><Choose /></div>
 
               <hr />
 

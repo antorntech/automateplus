@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import CustomModal from "../custommodal/CustomModal";
 
+export const Choose = ({ ...rest }) => (
+  <button className="w-full bg-gradient-to-l from-[#FBBB04] to-[#daa003] text-white py-2 px-6 rounded-md" {...rest}>
+    Choose
+  </button>
+)
+
 const FleetCars = ({ cars }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedCar, setSelectedCar] = useState(null);
@@ -14,6 +20,7 @@ const FleetCars = ({ cars }) => {
     setIsModalOpen(false);
     setSelectedCar(null);
   };
+
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-6 mt-8 md:mt-0">
       {cars?.length > 0 ? (
@@ -62,9 +69,7 @@ const FleetCars = ({ cars }) => {
               </span>
             </div>
             <div className="mt-4 flex w-full justify-between gap-5">
-              <button className="w-full bg-gradient-to-l from-[#FBBB04] to-[#daa003] text-white py-2 px-6 rounded-md">
-                Choose
-              </button>
+              <Choose />
               <button
                 onClick={() => handleCarSelect(car)}
                 className="w-full bg-gray-100 text-gray-800 py-2 px-6 rounded-md hover:bg-gray-200"
