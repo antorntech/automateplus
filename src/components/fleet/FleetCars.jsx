@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 import CustomModal from "../custommodal/CustomModal";
-
-export const Choose = ({ ...rest }) => (
-  <button className="w-full bg-gradient-to-l from-[#FBBB04] to-[#daa003] text-white py-2 px-6 rounded-md" {...rest}>
-    Choose
-  </button>
-)
+import { Link } from "react-router-dom";
 
 const FleetCars = ({ cars }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -69,7 +64,15 @@ const FleetCars = ({ cars }) => {
               </span>
             </div>
             <div className="mt-4 flex w-full justify-between gap-5">
-              <Choose />
+              <Link
+                to="/checkout"
+                state={{
+                  id: car.id,
+                }}
+                className="inline-block w-full bg-gradient-to-l from-[#FBBB04] to-[#daa003] text-white text-center py-2 px-6 rounded-md"
+              >
+                Choose
+              </Link>
               <button
                 onClick={() => handleCarSelect(car)}
                 className="w-full bg-gray-100 text-gray-800 py-2 px-6 rounded-md hover:bg-gray-200"

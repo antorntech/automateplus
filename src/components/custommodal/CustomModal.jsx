@@ -1,5 +1,5 @@
 import React from "react";
-import { Choose } from "../fleet/FleetCars";
+import { Link } from "react-router-dom";
 
 const CustomModal = ({ isOpen, onClose, car }) => {
   if (!isOpen) return null;
@@ -52,7 +52,14 @@ const CustomModal = ({ isOpen, onClose, car }) => {
                 <span class="text-gray-500 text-md">Price per week</span>
               </div>
 
-              <div className="flex"><Choose /></div>
+              <div className="flex">
+                <Link
+                  to="/checkout"
+                  className="inline-block w-full bg-gradient-to-l from-[#FBBB04] to-[#daa003] text-white text-center py-2 px-6 rounded-md"
+                >
+                  Choose
+                </Link>
+              </div>
 
               <hr />
 

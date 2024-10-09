@@ -7,6 +7,7 @@ import ContactUs from "../pages/ContactUs";
 import LongTerm from "../pages/LongTerm";
 import Fleet from "../pages/Fleet";
 import { ProviderAvailablity } from "../context/Availability";
+import Checkout from "../pages/Checkout";
 
 const AppRoutes = () => {
   return (
@@ -19,6 +20,7 @@ const AppRoutes = () => {
           <Route path="/fleet" element={<Fleet />} />
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/longtermform" element={<LongTerm />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Routes>
       </div>
     </ProviderAvailablity>
