@@ -254,7 +254,7 @@ const Checkout = () => {
               {/* Extras Section */}
               <div>
                 <label className="block text-gray-700">Extras</label>
-                <div className="flex gap-4">
+                <div className="flex flex-col md:flex-row gap-4">
                   <label className="flex items-center space-x-2">
                     <input
                       type="checkbox"
