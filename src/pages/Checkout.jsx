@@ -76,7 +76,7 @@ const Checkout = () => {
       <div className="bg-[#F7F8F9] py-10 px-4">
         <div className="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Form Section */}
-          <div className="lg:col-span-2 bg-white p-8 rounded-lg shadow">
+          <div className="lg:col-span-2 bg-white p-3 md:p-8 rounded-lg shadow">
             <h2 className="text-2xl font-semibold mb-4">
               Plan & Pricing Details
             </h2>
@@ -360,7 +360,7 @@ const Checkout = () => {
           </div>
 
           {/* Order Summary Section */}
-          <div className="bg-white p-8 rounded-lg shadow">
+          <div className="bg-white p-3 md:p-8 rounded-lg shadow">
             <h2 className="text-2xl font-semibold mb-4">
               Order Summary
               <hr className="border-gray-300 my-4" />
