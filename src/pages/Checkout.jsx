@@ -399,7 +399,7 @@ const Checkout = () => {
               </div>
               <div className="flex justify-between">
                 <span>Fleet Charges</span>
-                <span>€{car.daily_rate}</span>
+                <span>€{car?.daily_rate}</span>
               </div>
               <div className="flex justify-between">
                 <span>Extra Charges</span>
@@ -415,16 +415,16 @@ const Checkout = () => {
               </div>
               <div className="flex justify-between font-bold text-lg">
                 <span>Final Price</span>
-                <span>€{car.daily_rate}</span>
+                <span>€{car?.daily_rate}</span>
               </div>
               <hr className="border-gray-300 my-4" />
               <div className="w-full">
                 <h2 className="text-2xl font-semibold">
-                  {car.brand} {car.model}
+                  {car?.brand} {car?.model}
                 </h2>
                 <p>similar same group vehicle</p>
                 <img
-                  src={car.main_image}
+                  src={car?.main_image}
                   alt="Toyota Aygo"
                   className="w-full object-contain my-10"
                 />
